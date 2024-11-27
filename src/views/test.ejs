@@ -30,19 +30,19 @@
         }
 
         async function deleteIkasle() {
-        const id = document.getElementById("deleteId").value;
+            const id = document.getElementById("deleteId").value;
 
-        const response = await fetch(`/api/ikasleak/${id}`, {
-          method: "DELETE",
-        });
+            const response = await fetch(`/api/ikasleak/${id}`, {
+            method: "DELETE",
+            });
 
-        const data = await response.json();
-        document.getElementById("deletedIkasle").innerText = JSON.stringify(
-          data,
-          null,
-          2
-        );
-      }
+            const data = await response.json();
+            document.getElementById("deletedIkasle").innerText = JSON.stringify(
+            data,
+            null,
+            2
+            );
+        }
 
 
     </script>
@@ -74,7 +74,7 @@
         <button type="submit">Create</button>
     </form>
 
-    <h2>Edite Ikasle</h2>
+    <h2>Edit Ikasle</h2>
     <form onsubmit="event.preventDefault(); removeIkasleByID();">
         <label for="IkasleID">IkasleID:</label>
         <input type="text" id="IkasleID" name="IkasleID" required>
@@ -92,5 +92,36 @@
     </form>
 
     <pre id="newIkasle"></pre>
+
+    <h2>Create Talde</h2>
+    <form onsubmit="event.preventDefault(); createTalde();">
+        <label for="taldeIzena">Talde Name:</label>
+        <input type="text" id="taldeIzena" name="taldeIzena" required>
+        <br>
+        <button type="submit">Create</button>
+    </form>
+
+    <h2>Assign Ikasle to Talde</h2>
+    <form onsubmit="event.preventDefault(); assignIkasleToTalde();">
+        <label for="taldeId">Talde ID:</label>
+        <input type="text" id="taldeId" name="taldeId" required>
+        <br>
+        <label for="ikasleId">Ikasle ID:</label>
+        <input type="text" id="ikasleId" name="ikasleId" required>
+        <br>
+        <button type="submit">Assign</button>
+    </form>
+
+    <pre id="newIkasle"></pre>
+    <pre id="newTalde"></pre>
+    <pre id="assignedIkasle"></pre>
+
+    <h2>Get Taldeak</h2>
+    <button onclick="fetchTaldeak()">Get Taldeak</button>
+    <pre id="taldeak"></pre>
+
+    <pre id="newIkasle"></pre>
+    <pre id="newTalde"></pre>
+    <pre id="assignedIkasle"></pre>
 </body>
 </html>
